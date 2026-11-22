@@ -72,6 +72,14 @@ dd { margin: 4px 0 0; color: var(--mute); }
   .new img { max-width: 160px; }
 }
 </style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','832288800201317');
+fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'The Booked Solid AI Kit',content_type:'product',value:37.00,currency:'USD'});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=832288800201317&ev=PageView&noscript=1" alt=""></noscript>
 </head>
 <body>
 <div class="wrap">
@@ -147,5 +155,8 @@ dd { margin: 4px 0 0; color: var(--mute); }
 <p class="legal">This is an educational product. Results depend on your market, your offer and how you apply the system. No income or results are guaranteed. Copyright 2026 Natanael Oliveira.</p>
 
 </div>
+<script>
+document.querySelectorAll('a.cta').forEach(function(a){a.addEventListener('click',function(){if(window.fbq){fbq('track','InitiateCheckout',{content_name:'The Booked Solid AI Kit',value:37.00,currency:'USD'});}});});
+</script>
 </body>
 </html>
