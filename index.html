@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Zero to Booked Solid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: one dark column, 720px text measure, the kit's own cover system (Anton + Inter, night ground, coral accent). Single theme by choice. */
+:root {
+  color-scheme: dark;
+  --night: #05070D;
+  --panel: #0E1420;
+  --line: #232C3D;
+  --ink: #F3F6FB;
+  --mute: #9AA6BA;
+  --accent: #FF5A4D;
+  --accent-ink: #1A0806;
+  --display: 'Anton', 'Arial Narrow', Impact, sans-serif;
+  --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--night); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+img { max-width: 100%; height: auto; display: block; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+section { padding: 44px 0; border-top: 1px solid var(--line); }
+header.hero { padding: 40px 0 44px; text-align: center; }
+.eyebrow { font-size: 12px; letter-spacing: 3px; font-weight: 700; color: var(--accent); text-transform: uppercase; margin: 0 0 14px; }
+h1 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(46px, 11vw, 92px); line-height: .98; margin: 0 0 18px; letter-spacing: .5px; text-wrap: balance; }
+h1 span { color: var(--accent); }
+h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(28px, 6vw, 40px); line-height: 1.05; margin: 0 0 18px; text-wrap: balance; }
+h2 span { color: var(--accent); }
+.promise { font-size: clamp(19px, 3.4vw, 23px); line-height: 1.4; font-weight: 600; max-width: 620px; margin: 0 auto 10px; text-wrap: balance; }
+.sub { color: var(--mute); max-width: 600px; margin: 0 auto 26px; }
+.covers { border-radius: 12px; border: 1px solid var(--line); margin: 0 auto 28px; }
+.cta { display: inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 19px; text-decoration: none; padding: 17px 34px; border-radius: 10px; }
+.cta:hover { filter: brightness(1.08); }
+.cta:focus-visible, a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.fine { font-size: 13.5px; color: var(--mute); margin: 12px 0 0; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 0 0 26px; padding: 0; list-style: none; }
+.facts li { border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: 7px 15px; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.leaks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.leaks li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.leaks .n { font-family: var(--display); font-size: 30px; line-height: 1; color: var(--accent); }
+.leaks b { display: block; font-size: 18px; margin-bottom: 2px; }
+.leaks p { margin: 0; color: var(--mute); font-size: 15.5px; }
+.kit { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.kit div { display: grid; grid-template-columns: 92px 1fr auto; gap: 14px; padding: 15px 18px; background: var(--panel); border-top: 1px solid var(--line); align-items: baseline; }
+.kit div:first-child { border-top: 0; }
+.kit .v { font-size: 12px; letter-spacing: 2px; font-weight: 700; color: var(--accent); }
+.kit .t b { display: block; }
+.kit .t span { color: var(--mute); font-size: 15px; }
+.kit .p { color: var(--mute); font-size: 14px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.who { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+.who div { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.who b { display: block; margin-bottom: 4px; }
+.who span { color: var(--mute); font-size: 15px; }
+.new { display: grid; grid-template-columns: 150px 1fr; gap: 22px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.new img { border-radius: 6px; }
+.new p { margin: 6px 0 0; color: var(--mute); font-size: 15.5px; }
+dl { margin: 0; display: grid; gap: 16px; }
+dt { font-weight: 700; }
+dd { margin: 4px 0 0; color: var(--mute); }
+.close { text-align: center; }
+.price { font-family: var(--display); font-size: 64px; line-height: 1; margin: 0 0 6px; }
+.legal { font-size: 13px; color: var(--mute); padding: 28px 0 48px; border-top: 1px solid var(--line); }
+@media (max-width: 520px) {
+  .kit div { grid-template-columns: 1fr; gap: 2px; }
+  .new { grid-template-columns: 1fr; }
+  .new img { max-width: 160px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">For local businesses, professionals and service providers</p>
+  <h1>From Zero to<br>Booked <span>Solid</span></h1>
+  <p class="promise">How to use AI to attract more clients, earn more profit and get real results, even if you're starting from absolute zero.</p>
+  <p class="sub">One 105-page book and six practical playbooks that turn the ChatGPT or Claude you already have into a system for getting found, answering fast and winning clients back.</p>
+  <img class="covers" src="covers.jpg" alt="The Booked Solid AI Kit: the book From Zero to Booked Solid with its companion volumes" width="1200" height="750">
+  <ul class="facts"><li>7 PDFs</li><li>328 pages</li><li>47 scripts</li><li>20 AI prompts</li><li>Instant download</li></ul>
+  <a class="cta" href="https://buy.stripe.com/4gM4gz5d39lS5Ryduca3u1T" target="_blank" rel="noopener">Get Instant Access for $37</a>
+  <p class="fine">One payment. No subscription. No new software to buy.</p>
+</header>
+
+<section>
+  <h2>Five places clients <span>slip away</span></h2>
+  <p>Most local businesses don't need more leads first. They need to stop losing the ones they already get. The kit fixes five leaks, in order.</p>
+  <ol class="leaks">
+    <li><span class="n">1</span><div><b>Get found</b><p>Show up when people ask AI who to hire. Run the 25-question check and fix what keeps your business invisible.</p></div></li>
+    <li><span class="n">2</span><div><b>Answer fast</b><p>Reply to every lead in minutes, even after hours, with messages that sound like you.</p></div></li>
+    <li><span class="n">3</span><div><b>Follow up</b><p>Rescue quotes, proposals and treatment plans that went silent with a short sequence you copy and paste.</p></div></li>
+    <li><span class="n">4</span><div><b>Reviews</b><p>Build a steady stream of reviews without awkward asks.</p></div></li>
+    <li><span class="n">5</span><div><b>Wake-up</b><p>Turn past clients into next month's work with simple messages to people who already chose you once.</p></div></li>
+  </ol>
+</section>
+
+<section>
+  <h2>Everything you <span>get today</span></h2>
+  <div class="kit">
+    <div><span class="v">THE BOOK</span><span class="t"><b>From Zero to Booked Solid</b><span>The full method, from your first prompt to a business that answers every lead.</span></span><span class="p">105 pages</span></div>
+    <div><span class="v">VOL. 01</span><span class="t"><b>Booked Solid</b><span>The 5-Leak playbook.</span></span><span class="p">40 pages</span></div>
+    <div><span class="v">VOL. 02</span><span class="t"><b>Found by AI</b><span>The 25-question visibility check.</span></span><span class="p">33 pages</span></div>
+    <div><span class="v">VOL. 03</span><span class="t"><b>The Business Brain</b><span>The fill-in workbook that teaches AI your business.</span></span><span class="p">35 pages</span></div>
+    <div><span class="v">VOL. 04</span><span class="t"><b>The Script Vault</b><span>Copy-and-paste texts, emails, voicemails and prompts.</span></span><span class="p">39 pages</span></div>
+    <div><span class="v">VOL. 05</span><span class="t"><b>The 60-Minute Install</b><span>Your step-by-step setup plan.</span></span><span class="p">35 pages</span></div>
+    <div><span class="v">VOL. 06</span><span class="t"><b>The Local Pro Playbook</b><span>The method applied to practices, firms, studios and shops.</span></span><span class="p">41 pages</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Written for <span>your kind of business</span></h2>
+  <div class="who">
+    <div><b>Home services</b><span>Plumbers, HVAC, roofers, electricians, cleaners, landscapers.</span></div>
+    <div><b>Practices</b><span>Dentists, chiropractors, physical therapists, med spas, vets.</span></div>
+    <div><b>Firms</b><span>Attorneys, CPAs, insurance agents, advisors, real estate agents.</span></div>
+    <div><b>Studios and shops</b><span>Salons, barbers, trainers, photographers, groomers, repair shops.</span></div>
+  </div>
+  <div class="new" style="margin-top:18px">
+    <img src="vol06.jpg" alt="Cover of Volume 06, The Local Pro Playbook" width="340" height="440">
+    <div><b>Not in the trades?</b><p>Volume 06 translates every leak into your vocabulary, with scripts for patients, clients and regulars, and a page of rules to load so AI stays inside the lines of your profession.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Common <span>questions</span></h2>
+  <dl>
+    <div><dt>Do I need to be good with tech?</dt><dd>No. If you can text, you can do this. You copy, paste and fill in the blanks.</dd></div>
+    <div><dt>Do I need to buy software?</dt><dd>No. It works with the ChatGPT or Claude you already have.</dd></div>
+    <div><dt>How long does it take to set up?</dt><dd>Volume 05 walks you through the first setup in about 60 minutes. After that it takes a few minutes a day.</dd></div>
+    <div><dt>How do I get it?</dt><dd>You get access to the PDFs right after checkout.</dd></div>
+  </dl>
+</section>
+
+<section class="close">
+  <p class="eyebrow">The Booked Solid AI Kit</p>
+  <p class="price">$37</p>
+  <p class="sub">The book and all six volumes. One payment.</p>
+  <a class="cta" href="https://buy.stripe.com/4gM4gz5d39lS5Ryduca3u1T" target="_blank" rel="noopener">Get Instant Access</a>
+  <p class="fine">Secure checkout by Stripe. Card, Apple Pay and Google Pay.</p>
+</section>
+
+<p class="legal">This is an educational product. Results depend on your market, your offer and how you apply the system. No income or results are guaranteed. Copyright 2026 Natanael Oliveira.</p>
+
+</div>
+</body>
+</html>
