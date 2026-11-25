@@ -71,6 +71,34 @@ dd { margin: 4px 0 0; color: var(--mute); }
   .new { grid-template-columns: 1fr; }
   .new img { max-width: 160px; }
 }
+
+.lead { font-size: 19px; }
+.pull { border-left: 4px solid var(--accent); padding: 4px 0 4px 18px; margin: 22px 0; font-size: 20px; font-weight: 600; line-height: 1.4; }
+.stack { display: grid; gap: 12px; margin: 18px 0; }
+.stack div { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.stack b { display: block; margin-bottom: 3px; }
+.stack span { color: var(--mute); font-size: 15.5px; }
+.checks { list-style: none; margin: 14px 0; padding: 0; display: grid; gap: 10px; }
+.checks li { padding-left: 30px; position: relative; }
+.checks li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 700; }
+.nots li::before { content: "\2715"; }
+.steps { counter-reset: s; list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+.steps li::before { content: counter(s); font-family: var(--display); font-size: 30px; line-height: 1; color: var(--accent); }
+.steps b { display: block; font-size: 18px; margin-bottom: 2px; }
+.steps p { margin: 0; color: var(--mute); font-size: 15.5px; }
+.math { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; margin: 18px 0; }
+.math p { margin: 0 0 8px; }
+.math p:last-child { margin: 0; }
+.vol { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; margin: 0 0 14px; }
+.vol .v { font-size: 12px; letter-spacing: 2px; font-weight: 700; color: var(--accent); margin: 0 0 4px; }
+.vol h3 { margin: 0 0 6px; font-size: 20px; }
+.vol p { margin: 0 0 8px; color: var(--mute); font-size: 15.5px; }
+.vol ul { margin: 0; padding-left: 20px; color: var(--ink); font-size: 15.5px; }
+.vol li { margin-bottom: 4px; }
+.ps { font-size: 15.5px; color: var(--mute); text-align: left; margin-top: 26px; }
+.ps b { color: var(--ink); }
+.was { text-decoration: line-through; color: var(--mute); font-size: 22px; }
 </style>
 <!-- Meta Pixel -->
 <script>
@@ -79,7 +107,7 @@ fbq('init','512551722200414');
 fbq('init','9363144540449624');
 fbq('init','1517238420158582');
 fbq('track','PageView');
-fbq('track','ViewContent',{content_name:'The Booked Solid AI Kit',content_type:'product',value:37.00,currency:'USD'});
+fbq('track','ViewContent',{content_name:'The Booked Solid AI Kit',content_type:'product',value:7.00,currency:'USD'});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=512551722200414&ev=PageView&noscript=1" alt=""></noscript>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=9363144540449624&ev=PageView&noscript=1" alt=""></noscript>
@@ -92,23 +120,57 @@ fbq('track','ViewContent',{content_name:'The Booked Solid AI Kit',content_type:'
   <p class="eyebrow">For local businesses, professionals and service providers</p>
   <h1>From Zero to<br>Booked <span>Solid</span></h1>
   <p class="promise">How to use AI to attract more clients, earn more profit and get real results, even if you're starting from absolute zero.</p>
-  <p class="sub">One 105-page book and six practical playbooks that turn the ChatGPT or Claude you already have into a system for getting found, answering fast and winning clients back.</p>
+  <p class="sub">One 105-page book and six practical playbooks that turn the ChatGPT or Claude you already have into a system for getting found, answering fast and winning clients back. Copy, paste, done.</p>
   <img class="covers" src="covers.jpg" alt="The Booked Solid AI Kit: the book From Zero to Booked Solid with its companion volumes" width="1200" height="750">
   <ul class="facts"><li>7 PDFs</li><li>328 pages</li><li>47 scripts</li><li>20 AI prompts</li><li>Instant download</li></ul>
-  <a class="cta" href="https://buy.stripe.com/4gM4gz5d39lS5Ryduca3u1T" target="_blank" rel="noopener">Get Instant Access for $37</a>
-  <p class="fine">One payment. No subscription. No new software to buy.</p>
+  <a class="cta" href="https://buy.stripe.com/00w6oHfRH1TqbbS75Oa3u1U" target="_blank" rel="noopener">Get Instant Access for $7</a>
+  <p class="fine">One payment of $7. No subscription. No new software to buy.</p>
 </header>
 
 <section>
-  <h2>Five places clients <span>slip away</span></h2>
-  <p>Most local businesses don't need more leads first. They need to stop losing the ones they already get. The kit fixes five leaks, in order.</p>
+  <p class="eyebrow">Read this first</p>
+  <h2>Right now, someone near you needs <span>exactly what you sell</span></h2>
+  <p class="lead">They typed it into their phone a few minutes ago. Maybe into Google. Increasingly, into ChatGPT.</p>
+  <p>"Who is a good plumber near me?" "Which dentist takes new patients this week?" "Who can fix this before Friday?"</p>
+  <p>Somebody got that call. Somebody got named. Somebody answered in four minutes while the others were busy with a customer, a job site or a Tuesday.</p>
+  <p class="pull">The business that wins is rarely the best one. It is the one that was found, answered first and followed up.</p>
+  <p>If that sounds unfair, it is. But it is also good news. Finding, answering and following up are not talent. They are a system. And in 2026, you can build that system with an AI assistant you probably already have open in a browser tab.</p>
+</section>
+
+<section>
+  <h2>You don't have a <span>lead problem</span>. You have a leak problem.</h2>
+  <p>Most owners react to a slow month by chasing more leads: more ads, more posts, more networking. It feels productive. It is usually the most expensive way to fix the wrong thing.</p>
+  <p>Look at the clients who already reached you. How many asked for a quote and never heard back from you again? How many messages sat unanswered over a weekend? How many happy clients never left a review? How many past clients have not heard from you in a year?</p>
+  <p>Every one of those is money you already paid to earn, and then dropped on the floor.</p>
+  <p>The kit is built around five leaks. Fix them in order and the same amount of attention starts producing more booked work.</p>
   <ol class="leaks">
-    <li><span class="n">1</span><div><b>Get found</b><p>Show up when people ask AI who to hire. Run the 25-question check and fix what keeps your business invisible.</p></div></li>
-    <li><span class="n">2</span><div><b>Answer fast</b><p>Reply to every lead in minutes, even after hours, with messages that sound like you.</p></div></li>
-    <li><span class="n">3</span><div><b>Follow up</b><p>Rescue quotes, proposals and treatment plans that went silent with a short sequence you copy and paste.</p></div></li>
-    <li><span class="n">4</span><div><b>Reviews</b><p>Build a steady stream of reviews without awkward asks.</p></div></li>
-    <li><span class="n">5</span><div><b>Wake-up</b><p>Turn past clients into next month's work with simple messages to people who already chose you once.</p></div></li>
+    <li><span class="n">1</span><div><b>They can't find you</b><p>When people ask AI who to hire, your business never comes up. You run the 25-question check, see exactly why, and fix what keeps you invisible.</p></div></li>
+    <li><span class="n">2</span><div><b>You answer too late</b><p>The first reply usually wins the job. You get ready-made replies for texts, forms, missed calls and after-hours messages, in a voice that sounds like you.</p></div></li>
+    <li><span class="n">3</span><div><b>The quote goes cold</b><p>Quotes, proposals and treatment plans go silent because following up feels pushy. A short copy-and-paste sequence brings them back without pressure.</p></div></li>
+    <li><span class="n">4</span><div><b>No review gets left</b><p>Happy clients stay quiet unless you ask the right way, at the right moment. You get simple asks that do not feel awkward.</p></div></li>
+    <li><span class="n">5</span><div><b>They forget you exist</b><p>Past clients are the easiest work you will ever win, and the least contacted. You get simple wake-up messages for people who already chose you once.</p></div></li>
   </ol>
+</section>
+
+<section>
+  <h2>Why "just use <span>ChatGPT</span>" hasn't worked</h2>
+  <p>Maybe you have already tried it. You typed "write me a marketing post," got something generic, and closed the tab.</p>
+  <p>That is not your fault, and it is not the AI's. It is a briefing problem. AI does not know your services, your prices, your service area, your tone, or what you will never say to a client. So it guesses, and guesses sound like everybody else.</p>
+  <p class="pull">AI is only as good as what it knows about your business. Teach it once, and everything it writes gets sharper.</p>
+  <p>That is the heart of this kit. Before you copy a single script, you build your Business Brain: one page that teaches AI who you are, what you sell, who you serve and how you talk. Every prompt in the kit plugs into it. The result is messages that sound like you wrote them on your best day.</p>
+</section>
+
+<section>
+  <h2>Meet <span>The Booked Solid</span> AI Kit</h2>
+  <p>A complete, practical system in seven PDFs. You do not need to be technical. You do not need new software. If you can text and copy-paste, you can use every page of it.</p>
+  <ul class="checks">
+    <li><b>Get found.</b> Run the 25-question visibility check and see what AI says about you today.</li>
+    <li><b>Teach AI your business.</b> Fill in the workbook once and stop starting from scratch.</li>
+    <li><b>Answer in minutes.</b> Use scripts for texts, emails, voicemails and missed calls.</li>
+    <li><b>Rescue silent quotes.</b> Follow up without sounding desperate or pushy.</li>
+    <li><b>Collect reviews and repeat work.</b> Turn finished jobs into proof and past clients into next month's schedule.</li>
+    <li><b>Install it in about 60 minutes.</b> Follow a step-by-step plan instead of guessing what to do first.</li>
+  </ul>
 </section>
 
 <section>
@@ -122,6 +184,84 @@ fbq('track','ViewContent',{content_name:'The Booked Solid AI Kit',content_type:'
     <div><span class="v">VOL. 05</span><span class="t"><b>The 60-Minute Install</b><span>Your step-by-step setup plan.</span></span><span class="p">35 pages</span></div>
     <div><span class="v">VOL. 06</span><span class="t"><b>The Local Pro Playbook</b><span>The method applied to practices, firms, studios and shops.</span></span><span class="p">41 pages</span></div>
   </div>
+  <p class="fine" style="text-align:center">328 pages in total. 47 scripts. 20 AI prompts. Instant access after checkout.</p>
+</section>
+
+<section>
+  <h2>A closer look <span>inside</span></h2>
+
+  <div class="vol">
+    <p class="v">THE BOOK</p>
+    <h3>From Zero to Booked Solid</h3>
+    <p>The part that ties everything together. It is written like a book, with stories and real situations, so you understand why each move works and not just what to copy.</p>
+    <ul>
+      <li>How AI actually changes how clients choose who to hire</li>
+      <li>The 5-Leak method, one leak at a time, in the order that pays fastest</li>
+      <li>Practical examples you can adapt to your own business this week</li>
+    </ul>
+  </div>
+
+  <div class="vol">
+    <p class="v">VOL. 02</p>
+    <h3>Found by AI</h3>
+    <p>Stop guessing whether AI recommends you. Check it, then fix it.</p>
+    <ul>
+      <li>25 questions that reveal whether AI can find and name your business</li>
+      <li>What to fix first so you stop being invisible</li>
+    </ul>
+  </div>
+
+  <div class="vol">
+    <p class="v">VOL. 03</p>
+    <h3>The Business Brain</h3>
+    <p>The fill-in workbook that makes every other tool in the kit sound like you.</p>
+    <ul>
+      <li>Your services, your ideal client, your area, your tone and your rules in one place</li>
+      <li>About fifteen minutes to fill in, then you reuse it every time</li>
+    </ul>
+  </div>
+
+  <div class="vol">
+    <p class="v">VOL. 04</p>
+    <h3>The Script Vault</h3>
+    <p>The fastest volume to put to work. Open, copy, paste, send.</p>
+    <ul>
+      <li>Texts, emails, voicemails and call scripts for the moments that decide a job</li>
+      <li>Follow-up sequences for quotes that went quiet</li>
+      <li>Review requests and wake-up messages for past clients</li>
+    </ul>
+  </div>
+
+  <div class="vol">
+    <p class="v">VOL. 05</p>
+    <h3>The 60-Minute Install</h3>
+    <p>Reading is not setup. This volume is the plan that gets it running.</p>
+    <ul>
+      <li>A step-by-step setup you can finish in about an hour</li>
+      <li>A simple routine of a few minutes a day after that</li>
+    </ul>
+  </div>
+
+  <div class="vol">
+    <p class="v">VOL. 01 AND VOL. 06</p>
+    <h3>Booked Solid and The Local Pro Playbook</h3>
+    <p>Volume 01 is the compact 5-Leak playbook for quick reference. Volume 06 translates the whole method for practices, firms, studios and shops.</p>
+    <ul>
+      <li>Scripts for patients, clients and regulars, not just job-site customers</li>
+      <li>A page of rules to load into AI so it stays inside the lines of your profession</li>
+    </ul>
+  </div>
+
+  <p style="text-align:center;margin-top:26px"><a class="cta" href="https://buy.stripe.com/00w6oHfRH1TqbbS75Oa3u1U" target="_blank" rel="noopener">Get the Kit for $7</a></p>
+</section>
+
+<section>
+  <h2>Up and running in <span>three steps</span></h2>
+  <ol class="steps">
+    <li><div><b>Teach AI your business</b><p>Fill in the Business Brain. About fifteen minutes. You only do this once.</p></div></li>
+    <li><div><b>Plug in the scripts</b><p>Pick the leak that costs you the most right now and copy the matching scripts from the vault.</p></div></li>
+    <li><div><b>Follow the 60-minute plan</b><p>Volume 05 walks you through the setup in order, so you are not left guessing what comes next.</p></div></li>
+  </ol>
 </section>
 
 <section>
@@ -139,28 +279,67 @@ fbq('track','ViewContent',{content_name:'The Booked Solid AI Kit',content_type:'
 </section>
 
 <section>
+  <h2>This kit is for you <span>if...</span></h2>
+  <ul class="checks">
+    <li>You own or run a local business and your calendar is not as full as it should be</li>
+    <li>You are good at the work and tired of being bad at the "getting clients" part</li>
+    <li>You get quote requests, calls or messages that you answer late or not at all</li>
+    <li>You want to use AI but don't know what to say to it</li>
+    <li>You want practical scripts and a plan, not theory</li>
+  </ul>
+  <h2 style="margin-top:30px">It is <span>not</span> for you if...</h2>
+  <ul class="checks nots">
+    <li>You want a magic button that brings clients without any effort on your side</li>
+    <li>You are looking for advanced coding or automation tools. This kit uses plain ChatGPT or Claude</li>
+    <li>You are not willing to spend about an hour on setup</li>
+  </ul>
+</section>
+
+<section>
+  <h2>About the <span>author</span></h2>
+  <p>I'm Natanael Oliveira. I have spent more than 15 years in digital marketing and direct-response copywriting, and I'm the author of more than 20 books. I work with businesses in the US and Brazil, and I wrote this kit for one reason: the owners I meet are excellent at what they do, and they lose clients in the same five places.</p>
+  <p>None of those leaks needs a bigger budget. They need a system that is simple enough to actually use. That is what is inside.</p>
+</section>
+
+<section>
+  <h2>The math is <span>simple</span></h2>
+  <div class="math">
+    <p>What is one new client worth to your business? $150? $500? $5,000?</p>
+    <p>The kit costs $7.</p>
+    <p>If it helps you answer one lead you would have missed, rescue one quote that went silent, or bring back one past client, it has paid for itself many times over. There is no guarantee that will happen for you, because results depend on your market, your offer and how you apply the system. But the price of finding out is less than a coffee.</p>
+  </div>
+  <p>Compare that to the usual alternatives: a freelancer to write your follow-ups, a consultant to set up your messages, or hours of trial and error with a blank AI chat window.</p>
+</section>
+
+<section>
   <h2>Common <span>questions</span></h2>
   <dl>
     <div><dt>Do I need to be good with tech?</dt><dd>No. If you can text, you can do this. You copy, paste and fill in the blanks.</dd></div>
-    <div><dt>Do I need to buy software?</dt><dd>No. It works with the ChatGPT or Claude you already have.</dd></div>
+    <div><dt>Do I need to buy software?</dt><dd>No. It works with the ChatGPT or Claude you already have, including the free versions.</dd></div>
+    <div><dt>I tried AI before and the results were generic. Will this be different?</dt><dd>Yes, and that is the point of the Business Brain. Once AI knows your services, your area and your voice, the same tool writes messages that sound like you instead of like everyone else.</dd></div>
+    <div><dt>Is this only for plumbers and contractors?</dt><dd>No. The main method works for any local service business, and Volume 06 is written for practices, firms, studios and shops.</dd></div>
     <div><dt>How long does it take to set up?</dt><dd>Volume 05 walks you through the first setup in about 60 minutes. After that it takes a few minutes a day.</dd></div>
-    <div><dt>How do I get it?</dt><dd>You get access to the PDFs right after checkout.</dd></div>
+    <div><dt>How do I get it?</dt><dd>You get access to the PDFs right after checkout. Open them on your phone or computer.</dd></div>
+    <div><dt>Is it a subscription?</dt><dd>No. It is one payment of $7.</dd></div>
+    <div><dt>Is payment secure?</dt><dd>Yes. Checkout is handled by Stripe. You can pay with a card, Apple Pay or Google Pay.</dd></div>
   </dl>
 </section>
 
 <section class="close">
   <p class="eyebrow">The Booked Solid AI Kit</p>
-  <p class="price">$37</p>
-  <p class="sub">The book and all six volumes. One payment.</p>
-  <a class="cta" href="https://buy.stripe.com/4gM4gz5d39lS5Ryduca3u1T" target="_blank" rel="noopener">Get Instant Access</a>
+  <h2>Stop losing the clients <span>you already earned</span></h2>
+  <p class="price">$7</p>
+  <p class="sub">The book and all six volumes. 328 pages. One payment. Instant access.</p>
+  <a class="cta" href="https://buy.stripe.com/00w6oHfRH1TqbbS75Oa3u1U" target="_blank" rel="noopener">Get Instant Access for $7</a>
   <p class="fine">Secure checkout by Stripe. Card, Apple Pay and Google Pay.</p>
+  <p class="ps"><b>P.S.</b> The next time someone asks AI who to hire, either your business is in the answer or it isn't. Every week you wait is another week of messages answered late, quotes gone cold and past clients who forgot your name. The fix starts with one hour and a $7 download.</p>
 </section>
 
 <p class="legal">This is an educational product. Results depend on your market, your offer and how you apply the system. No income or results are guaranteed. Copyright 2026 Natanael Oliveira.</p>
 
 </div>
 <script>
-document.querySelectorAll('a.cta').forEach(function(a){a.addEventListener('click',function(){if(window.fbq){fbq('track','InitiateCheckout',{content_name:'The Booked Solid AI Kit',value:37.00,currency:'USD'});}});});
+document.querySelectorAll('a.cta').forEach(function(a){a.addEventListener('click',function(){if(window.fbq){fbq('track','InitiateCheckout',{content_name:'The Booked Solid AI Kit',value:7.00,currency:'USD'});}});});
 </script>
 </body>
 </html>
