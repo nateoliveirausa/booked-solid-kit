@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Welcome to MoneyBook AI</title>
+<style>
+:root { --ink:#1d1d1f; --mute:#6e6e73; --line:#e5e5ea; --bg:#fbfbfd; --blue:#0071e3; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased; }
+.wrap { max-width:640px; margin:0 auto; padding:72px 22px 80px; text-align:center; }
+.eyebrow { font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); margin:0 0 14px; }
+h1 { font-size:clamp(36px,8vw,56px); line-height:1.05; letter-spacing:-.02em; font-weight:700; margin:0 0 18px; }
+.lead { font-size:19px; color:var(--mute); margin:0 auto 34px; max-width:480px; }
+.cta { display:inline-block; background:var(--blue); color:#fff; font-weight:600; font-size:18px; text-decoration:none; padding:16px 34px; border-radius:980px; box-shadow:0 8px 24px rgba(0,113,227,.28); }
+.cta:hover { background:#0077ed; }
+.cta:focus-visible { outline:3px solid #1d1d1f; outline-offset:3px; }
+.steps { text-align:left; background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px 28px; margin:46px 0 0; }
+.steps h2 { font-size:17px; margin:0 0 14px; }
+.steps ol { margin:0; padding-left:22px; }
+.steps li { margin-bottom:10px; color:var(--ink); }
+.steps li:last-child { margin-bottom:0; }
+.fine { font-size:13px; color:var(--mute); margin-top:26px; }
+</style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','512551722200414');
+fbq('init','9363144540449624');
+fbq('init','1517238420158582');
+fbq('track','PageView');
+// Purchase only when Stripe sends the buyer here with a real checkout session id.
+// Opening this page directly (no session_id) never counts as a sale.
+(function(){
+  var sid=new URLSearchParams(location.search).get('session_id');
+  if(!sid||sid.indexOf('cs_live_')!==0) return;
+  var key='mb_purchase_'+sid, done=false;
+  try{done=localStorage.getItem(key)==='1';}catch(e){}
+  if(done) return;
+  fbq('track','Purchase',{content_name:'MoneyBook AI - 1 year access',content_type:'product',value:47.00,currency:'USD'},{eventID:sid});
+  try{localStorage.setItem(key,'1');}catch(e){}
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=512551722200414&ev=PageView&noscript=1" alt=""></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=9363144540449624&ev=PageView&noscript=1" alt=""></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517238420158582&ev=PageView&noscript=1" alt=""></noscript>
+</head>
+<body>
+<main class="wrap">
+  <p class="eyebrow">Payment received</p>
+  <h1>You're in.<br>Create your account.</h1>
+  <p class="lead">One last step: create your free account to unlock all 18 book-writing agents for a full year.</p>
+  <a class="cta" href="https://studio.pickaxe.co/STUDIOI5AUJIPXOT7EC9UZZOVI/guest">Create your account</a>
+
+  <section class="steps">
+    <h2>How to get started</h2>
+    <ol>
+      <li>Click the button above, then choose <strong>Sign up</strong> in the top right corner.</li>
+      <li>Use your email (or Google) and create a password.</li>
+      <li>Open the <strong>Bestseller eBook Generator</strong> and answer the guided questions. It walks you through your whole book.</li>
+    </ol>
+  </section>
+  <p class="fine">Your Stripe receipt was sent to the email you used at checkout.</p>
+</main>
+</body>
+</html>
