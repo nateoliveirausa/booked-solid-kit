@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoneyBook AI | Write your book with AI. From first idea to published.</title>
+<meta name="description" content="18 specialized AI agents guide you step by step through your entire book. One payment of $47 for a full year of access.">
+<meta property="og:title" content="MoneyBook AI | Write your book with AI">
+<meta property="og:description" content="18 specialized AI agents that guide you step by step, from first idea to published book. $47 for a full year.">
+<meta name="theme-color" content="#fbfbfd">
+<style>
+:root{--ink:#1d1d1f;--mute:#6e6e73;--line:#e5e5ea;--bg:#fbfbfd;--card:#fff;--blue:#0071e3;--blue2:#4db3ff;--soft:#f5f5f7;--radius:22px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.narrow{max-width:760px;margin:0 auto;text-align:center}
+h1,h2,h3{letter-spacing:-.025em;line-height:1.05;margin:0}
+h1{font-size:clamp(42px,8.4vw,92px);font-weight:800}
+h2{font-size:clamp(32px,5.6vw,56px);font-weight:800}
+h3{font-size:20px;letter-spacing:-.01em;line-height:1.25}
+.grad{background:linear-gradient(90deg,#0a7cf0,#4db3ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{font-size:14px;font-weight:600;color:var(--blue);margin:0 0 14px}
+.lead{font-size:clamp(18px,2.4vw,22px);color:var(--mute);margin:22px auto 0;max-width:620px}
+section{padding:96px 0}
+.cta{display:inline-block;background:var(--blue);color:#fff;font-weight:600;font-size:18px;text-decoration:none;padding:17px 34px;border-radius:980px;box-shadow:0 10px 28px rgba(0,113,227,.30);transition:transform .15s,background .15s}
+.cta:hover{background:#0077ed;transform:translateY(-1px)}
+.cta:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.fine{font-size:13px;color:var(--mute);margin:14px 0 0}
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:rgba(251,251,253,.82);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(0,0,0,.06)}
+.top .in{display:flex;align-items:center;justify-content:space-between;height:52px}
+.brand{font-weight:700;letter-spacing:-.01em;font-size:17px}
+.pill{background:var(--blue);color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:8px 16px;border-radius:980px}
+/* hero */
+.hero{padding:84px 0 40px;text-align:center;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(77,140,255,.13),transparent 70%)}
+.price-line{font-size:22px;font-weight:600;margin:34px 0 22px}
+.price-line s{color:var(--mute);font-weight:500}
+/* books */
+.books{display:flex;justify-content:center;align-items:flex-end;gap:clamp(8px,2.2vw,26px);margin:52px auto 0;perspective:1200px;flex-wrap:nowrap}
+.bk{display:flex;flex-direction:column;align-items:center;gap:14px;font-size:13px;color:var(--mute);text-align:center}
+.book{position:relative;width:clamp(62px,14vw,148px);aspect-ratio:2/3;border-radius:3px 7px 7px 3px;box-shadow:0 22px 34px -14px rgba(0,0,0,.45),0 4px 8px rgba(0,0,0,.14);transform:rotateY(-14deg);transform-style:preserve-3d;transition:transform .35s;overflow:hidden;padding:11% 9% 8%;display:flex;flex-direction:column}
+.book:hover{transform:rotateY(0) translateY(-8px)}
+.book:before{content:"";position:absolute;left:0;top:0;bottom:0;width:7%;background:linear-gradient(90deg,rgba(0,0,0,.35),rgba(255,255,255,.12) 60%,transparent)}
+.book .t{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:clamp(9px,1.9vw,19px);line-height:1.05}
+.book .s{font-size:clamp(4px,.8vw,8px);opacity:.75;margin-top:5%}
+.book .by{margin-top:auto;font-size:clamp(4px,.75vw,8px);letter-spacing:.18em;font-weight:700;opacity:.8}
+.book svg{width:78%;margin:6% auto 0;display:block}
+.b1{background:linear-gradient(160deg,#0b4f46,#06312c);color:#f6e7b8}
+.b2{background:linear-gradient(160deg,#e6f6ec,#bfe5cd);color:#17503a}
+.b3{background:linear-gradient(160deg,#17171a,#07070a);color:#fff;width:clamp(70px,16vw,170px)}
+.b3 .t{font-family:-apple-system,"Inter",Arial,sans-serif;font-weight:800;text-transform:uppercase;border-left:3px solid #ff7a2f;padding-left:6px}
+.b4{background:linear-gradient(180deg,#6a4bff,#d65bd0 55%,#ff9a62);color:#fff}
+.b5{background:linear-gradient(160deg,#ffe6dc,#f2b8a4);color:#6a2230}
+.caption{font-size:20px;font-weight:600;margin:42px 0 0;text-align:center}
+.formats{display:flex;justify-content:center;align-items:flex-end;gap:clamp(18px,5vw,64px);margin-top:70px}
+.formats .lbl{text-align:center;font-size:13px;color:var(--mute);margin-top:12px}
+.paper{width:92px;aspect-ratio:2/3;transform:rotate(-4deg)}
+.tablet{width:176px;height:122px;border-radius:16px;background:#fff;border:7px solid #1d1d1f;display:flex;overflow:hidden;box-shadow:0 18px 30px -12px rgba(0,0,0,.4)}
+.tablet .l{width:38%;background:#e8eaed;display:flex;align-items:center;justify-content:center}
+.tablet .l .book{width:44px;transform:none;padding:6px 5px;box-shadow:0 4px 8px rgba(0,0,0,.3)}
+.tablet .l .book .t{font-size:5px}.tablet .l .book .by{font-size:3px}.tablet .l .book .s{display:none}.tablet .l .book svg{display:none}
+.tablet .r{flex:1;padding:12px 10px;font-family:Georgia,serif;font-weight:700;font-size:11px}
+.tablet .r i{display:block;height:4px;background:#dcdce1;border-radius:2px;margin-top:6px}
+.reader{width:74px;height:104px;border-radius:10px;background:#e9e9ed;border:1px solid #d2d2d7;padding:9px;box-shadow:0 14px 24px -10px rgba(0,0,0,.35)}
+.reader .scr{background:#ecebe6;border-radius:3px;height:100%;display:flex;align-items:center;justify-content:center}
+.reader .scr .book{width:36px;transform:none;padding:5px 4px;border-radius:2px}
+.reader .scr .book .t{font-size:4.5px}.reader .scr .book .by,.reader .scr .book .s,.reader .scr .book svg{display:none}
+.reader .scr .book{filter:grayscale(1)}
+/* promise */
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:34px 0 0}
+.chip{border:1px solid var(--line);background:var(--soft);border-radius:980px;padding:8px 16px;font-size:14px;font-weight:500}
+.ba{margin:56px auto 0;border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;position:relative;box-shadow:0 20px 50px -24px rgba(0,0,0,.25)}
+.ba>div{min-height:300px;padding:30px;position:relative}
+.ba .bef{background:#e8e8ed}.ba .aft{background:linear-gradient(135deg,#eef3ff,#f6f9ff)}
+.tag{position:absolute;top:16px;left:16px;font-size:12px;font-weight:600;padding:4px 11px;border-radius:980px;background:#fff;color:#555}
+.aft .tag{background:var(--blue);color:#fff}
+.sheet{width:62%;margin:26px auto 0;background:#fff;border-radius:6px;padding:20px;transform:rotate(4deg);box-shadow:0 14px 26px rgba(0,0,0,.14);font-family:Georgia,serif;color:#777;font-style:italic}
+.sheet .st{color:#c44;text-decoration:line-through;font-size:20px}
+.sheet .sq{font-size:14px;margin-top:34px}
+.open{width:92%;margin:18px auto 0;background:#fff;border-radius:6px;padding:20px 22px;box-shadow:0 14px 26px rgba(0,0,0,.14);display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.open .ch{font-size:10px;letter-spacing:.16em;font-weight:700;color:var(--blue);font-family:-apple-system,Arial,sans-serif}
+.open .tt{font-family:Georgia,serif;font-weight:700;font-size:24px;line-height:1.05;margin-top:6px}
+.open i{display:block;height:5px;background:#e3e3e8;border-radius:3px;margin-top:8px}
+.arrow{position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;color:var(--blue);font-weight:800;z-index:2}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.cmp>div{border-radius:var(--radius);padding:28px 30px}
+.cmp .no{background:var(--soft)}.cmp .yes{background:#fff;border:1px solid #bcd7fb;box-shadow:0 18px 40px -22px rgba(0,113,227,.4)}
+.cmp small{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--mute)}
+.yes small{color:var(--blue)}
+.cmp h3{font-size:28px;font-weight:800;margin:10px 0 18px;line-height:1.1}
+.cmp ul{list-style:none;margin:0;padding:0}
+.cmp li{padding:11px 0 11px 30px;border-top:1px solid var(--line);position:relative;font-size:15px}
+.cmp li:before{position:absolute;left:0;top:11px;font-weight:700}
+.no li:before{content:"\00d7";color:#86868b}.yes li:before{content:"\2713";color:var(--blue)}
+/* app */
+.appwrap{background:var(--soft)}
+.app{margin:52px auto 0;max-width:960px;border-radius:16px;background:#fff;box-shadow:0 40px 80px -30px rgba(0,0,0,.35),0 0 0 1px rgba(0,0,0,.06);overflow:hidden;text-align:left}
+.bar{height:38px;background:#f1f1f4;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--line)}
+.bar b{width:11px;height:11px;border-radius:50%;display:block}
+.bar span{margin:0 auto;font-size:12px;color:#86868b;background:#fff;border-radius:6px;padding:3px 44px}
+.body{display:grid;grid-template-columns:230px 1fr;min-height:430px}
+.side{background:#fafafb;border-right:1px solid var(--line);padding:18px 12px}
+.side .h{font-size:11px;letter-spacing:.08em;font-weight:700;color:#86868b;margin:6px 8px 10px}
+.side div.a{font-size:13px;padding:8px 10px;border-radius:8px;color:#3a3a3c}
+.side div.on{background:#e8f1fd;color:#0a58b8;font-weight:600}
+.main{padding:24px 28px}
+.main .ag{font-size:12px;font-weight:600;color:var(--blue)}
+.step{font-size:12px;color:#86868b;margin-top:10px}
+.q{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:4px 0 14px}
+.lab{font-size:12px;font-weight:600;color:#555;margin:12px 0 5px}
+.fld{border:1px solid #d2d2d7;border-radius:10px;padding:10px 12px;font-size:13px;color:#3a3a3c;background:#fff}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{border:1px solid #d2d2d7;border-radius:980px;padding:6px 13px;font-size:12.5px}
+.opt.on{background:#e8f1fd;border-color:#9cc4f5;color:#0a58b8;font-weight:600}
+.row{display:flex;justify-content:space-between;margin-top:18px}
+.btn{font-size:13px;font-weight:600;border-radius:980px;padding:8px 18px;border:1px solid #d2d2d7}
+.btn.p{background:var(--blue);color:#fff;border-color:var(--blue)}
+.bub{margin-top:18px;background:var(--soft);border-radius:14px;padding:13px 15px;font-size:13px;color:#3a3a3c}
+.bub b{display:block;font-size:11px;color:var(--blue);margin-bottom:4px}
+.bub.me{background:var(--blue);color:#fff;margin-left:30%}
+.note{font-size:12px;color:#86868b;text-align:center;margin-top:14px}
+/* how */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.sc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;text-align:left}
+.mini{background:var(--soft);border-radius:14px;padding:12px;min-height:118px;font-size:12px;display:flex;flex-direction:column;gap:7px;justify-content:center}
+.mini .f{background:#fff;border:1px solid #dcdce1;border-radius:8px;padding:7px 9px}
+.mini .ok{background:#fff;border-radius:8px;padding:6px 9px;font-weight:600;color:#1a7f37;border:1px solid #cdebd5}
+.sc .n{font-size:12px;font-weight:700;color:var(--blue);margin:16px 0 6px}
+.sc p{font-size:14px;color:var(--mute);margin:8px 0 0}
+/* agents */
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:40px 0 28px}
+.tabs button{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:980px;padding:9px 18px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tabs button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.panel{display:none}.panel.on{display:block}
+.panel>.pt{text-align:center;font-size:19px;color:var(--mute);margin-bottom:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.ac{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.ac small{display:block;font-size:11px;font-weight:700;letter-spacing:.07em;color:var(--mute);margin:12px 0 4px}
+.ac p{margin:0;font-size:15px}
+/* cover showcase */
+.show{background:var(--ink);color:#fff;border-radius:34px;padding:72px 22px 64px;text-align:center}
+.show .lead{color:#a1a1a6}
+.show .books{margin-top:56px}
+.show .bk{color:#a1a1a6}
+.show .price-line s{color:#86868b}
+/* offer */
+.offer{max-width:520px;margin:48px auto 0;background:#fff;border:1px solid var(--line);border-radius:28px;padding:40px 34px;box-shadow:0 30px 70px -34px rgba(0,0,0,.3);text-align:center}
+.save{display:inline-block;background:#e8f1fd;color:#0a58b8;font-weight:700;font-size:13px;border-radius:980px;padding:5px 13px}
+.was{font-size:24px;color:var(--mute);text-decoration:line-through;margin-top:16px}
+.now{font-size:76px;font-weight:800;letter-spacing:-.04em;line-height:1}
+.now small{font-size:20px;font-weight:600;color:var(--mute);letter-spacing:0}
+.offer ul{list-style:none;padding:0;margin:26px 0 28px;text-align:left}
+.offer li{padding:11px 0 11px 30px;border-top:1px solid var(--line);position:relative;font-size:16px}
+.offer li:before{content:"\2713";position:absolute;left:2px;color:var(--blue);font-weight:800}
+/* faq */
+.faq{max-width:760px;margin:44px auto 0}
+.faq details{border-bottom:1px solid var(--line);padding:6px 0}
+.faq summary{cursor:pointer;list-style:none;font-size:19px;font-weight:600;padding:16px 36px 16px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";position:absolute;right:4px;top:12px;font-size:28px;color:var(--mute);font-weight:400}
+.faq details[open] summary:after{content:"\2212"}
+.faq p{margin:0 0 16px;color:var(--mute);font-size:17px}
+.disc{font-size:13px;color:var(--mute);text-align:center;max-width:640px;margin:30px auto 0}
+.final{text-align:center}
+.final .price-line{margin-top:26px}
+footer{padding:30px 0 50px;text-align:center;font-size:13px;color:var(--mute);border-top:1px solid var(--line)}
+@media(max-width:860px){
+ section{padding:70px 0}
+ .steps{grid-template-columns:1fr 1fr}
+ .body{grid-template-columns:1fr}.side{display:none}
+ .ba{grid-template-columns:1fr}.arrow{display:none}
+ .cmp{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+ .steps{grid-template-columns:1fr}
+ .formats{gap:14px;transform:scale(.82);margin-top:56px}
+ .now{font-size:64px}
+ .main{padding:20px 18px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','512551722200414');
+fbq('init','9363144540449624');
+fbq('init','1517238420158582');
+fbq('track','PageView');
+fbq('track','ViewContent',{content_name:'MoneyBook AI - 1 year access',value:47.00,currency:'USD'});
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=512551722200414&ev=PageView&noscript=1" alt=""></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=9363144540449624&ev=PageView&noscript=1" alt=""></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517238420158582&ev=PageView&noscript=1" alt=""></noscript>
+</head>
+<body>
+
+<header class="top"><div class="wrap in"><span class="brand">MoneyBook AI</span><a class="pill cta-track" href="https://buy.stripe.com/00wfZh0WN7dK3Jqduca3u1V">Get access</a></div></header>
+
+<main>
+<!-- HERO -->
+<section class="hero" style="padding-bottom:70px">
+  <div class="wrap">
+    <h1>Write your book with AI. <span class="grad">From first idea to published.</span></h1>
+    <p class="lead">18 specialized AI agents that guide you step by step through your entire book.</p>
+    <p class="price-line"><s>Was $197.</s> Now $47 for a full year.</p>
+    <a class="cta cta-track" href="https://buy.stripe.com/00wfZh0WN7dK3Jqduca3u1V">Get 1 year of access for $47</a>
+    <p class="fine">One payment of $47 per year. Full access to all 18 agents.</p>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section style="padding-top:30px">
+  <div class="wrap">
+    <h2 style="text-align:center">Your book, ready.</h2>
+    <div class="books" aria-label="Example book covers">
+      <div class="bk"><div class="book b1"><div class="t">THE MONEY METHOD</div><div class="s">A simple system for your finances</div>
+        <svg viewBox="0 0 80 60" aria-hidden="true"><rect x="6" y="38" width="12" height="20" fill="#e4c26b"/><rect x="24" y="28" width="12" height="30" fill="#e4c26b"/><rect x="42" y="18" width="12" height="40" fill="#e4c26b"/><rect x="60" y="6" width="12" height="52" fill="#e4c26b"/></svg>
+        <div class="by">YOUR NAME</div></div>Money and Finance</div>
+      <div class="bk"><div class="book b2"><div class="t" style="font-style:italic">Lean<br>Mind</div><div class="s">Calm habits for a healthier life</div>
+        <svg viewBox="0 0 80 60" aria-hidden="true"><circle cx="40" cy="30" r="26" fill="none" stroke="#17503a" stroke-opacity=".35"/><circle cx="40" cy="30" r="16" fill="none" stroke="#17503a" stroke-opacity=".35"/><circle cx="40" cy="30" r="6" fill="#17503a"/></svg>
+        <div class="by">YOUR NAME</div></div>Health and Wellness</div>
+      <div class="bk"><div class="book b3"><div class="t">Scale<br>Without<br><span style="color:#ff7a2f">Stress</span></div><div class="s">Grow your business, keep your calm.</div>
+        <svg viewBox="0 0 80 60" aria-hidden="true"><rect x="4" y="42" width="24" height="16" fill="#ff7a2f"/><rect x="28" y="28" width="24" height="30" fill="#ff7a2f" opacity=".85"/><rect x="52" y="12" width="24" height="46" fill="#ff7a2f" opacity=".7"/></svg>
+        <div class="by">YOUR NAME</div></div>Business and Marketing</div>
+      <div class="bk"><div class="book b4"><div class="t" style="font-style:italic">Begin<br>Again</div><div class="s">A fresh start, one step at a time</div>
+        <svg viewBox="0 0 80 60" aria-hidden="true"><path d="M10 44a30 30 0 0 1 60 0z" fill="#fff" opacity=".92"/><rect x="6" y="48" width="68" height="3" rx="1.5" fill="#fff" opacity=".7"/><rect x="14" y="54" width="52" height="3" rx="1.5" fill="#fff" opacity=".5"/></svg>
+        <div class="by">YOUR NAME</div></div>Personal Growth</div>
+      <div class="bk"><div class="book b5"><div class="t">The Calm<br>Couple</div><div class="s">Closer conversations, lasting love</div>
+        <svg viewBox="0 0 80 60" aria-hidden="true"><circle cx="32" cy="30" r="20" fill="none" stroke="#6a2230" stroke-width="2" opacity=".7"/><circle cx="50" cy="30" r="20" fill="none" stroke="#6a2230" stroke-width="2" opacity=".7"/></svg>
+        <div class="by">YOUR NAME</div></div>Relationships</div>
+    </div>
+    <p class="caption">Any topic you know. Your name on the cover.</p>
+
+    <p class="fine" style="text-align:center;margin-top:60px;font-size:15px">The same book, in every format.</p>
+    <div class="formats">
+      <div><div class="book b1 paper"><div class="t">THE MONEY METHOD</div><div class="by">YOUR NAME</div></div><div class="lbl">Paperback</div></div>
+      <div><div class="tablet"><div class="l"><div class="book b1"><div class="t">THE MONEY METHOD</div><div class="by">YOUR NAME</div></div></div><div class="r">Chapter 1<i></i><i></i><i style="width:70%"></i><i></i><i style="width:55%"></i></div></div><div class="lbl">Ebook on a tablet</div></div>
+      <div><div class="reader"><div class="scr"><div class="book b1"><div class="t">THE MONEY METHOD</div></div></div></div><div class="lbl">E-reader</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section style="padding-top:40px">
+  <div class="wrap">
+    <div class="narrow">
+      <p class="eyebrow">The big promise</p>
+      <h2>You do not need to be a writer.</h2>
+      <p class="lead">Answer guided questions about what you already know. The agents turn your knowledge into a complete, well-structured book.</p>
+      <p class="lead" style="margin-top:14px">Then they keep going, with everything you need to sell it.</p>
+      <div class="chips"><span class="chip">Your complete book</span><span class="chip">Title and subtitle</span><span class="chip">Cover concepts</span><span class="chip">Amazon KDP listing</span><span class="chip">Launch plan</span><span class="chip">Sales page</span></div>
+    </div>
+    <div class="ba">
+      <div class="bef"><span class="tag">Before</span>
+        <div class="sheet"><div class="st">Chapter 1?</div><div class="sq">Where do I start?<br>Is this even good enough?</div></div></div>
+      <div class="arrow">&rarr;</div>
+      <div class="aft"><span class="tag">After</span>
+        <div class="open"><div><div class="ch">CHAPTER ONE</div><div class="tt">Your First Step</div><i style="width:46px;height:3px;background:var(--blue);margin-top:10px"></i><i style="margin-top:16px"></i><i></i><i style="width:70%"></i></div><div><i style="margin-top:4px"></i><i></i><i style="width:80%"></i><i></i><i style="width:60%"></i><i></i></div></div></div>
+    </div>
+    <div class="cmp">
+      <div class="no"><small>BEFORE</small><h3>Months of blank pages and doubt.</h3><ul><li>Staring at an empty page, not knowing where to start</li><li>Wondering if your idea is good enough</li><li>No clear path from manuscript to published book</li></ul></div>
+      <div class="yes"><small>AFTER</small><h3>A finished book, guided step by step.</h3><ul><li>A clear question to answer at every step</li><li>Your topic checked and your structure planned</li><li>Cover, listing, launch plan and sales page ready</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- APP -->
+<section class="appwrap">
+  <div class="wrap">
+    <div class="narrow">
+      <p class="eyebrow">Inside the app</p>
+      <h2>See how it feels before you start.</h2>
+      <p class="lead">Pick an agent, answer one guided question at a time, and watch your chapter take shape.</p>
+    </div>
+    <div class="app" role="img" aria-label="Illustration of the MoneyBook AI app">
+      <div class="bar"><b style="background:#ff5f57"></b><b style="background:#febc2e"></b><b style="background:#28c840"></b><span>MoneyBook AI</span></div>
+      <div class="body">
+        <div class="side"><div class="h">AGENTS</div>
+          <div class="a">Bestseller eBook Generator</div><div class="a on">Opening Chapter Writer</div><div class="a">Middle Chapters Writer</div><div class="a">Closing Chapters Writer</div><div class="a">Book Title Generator</div><div class="a">Book Cover and Back Cover Agent</div><div class="a">Amazon KDP Listing Agent</div><div class="a">Book Launch Agent</div></div>
+        <div class="main">
+          <div class="ag">Opening Chapter Writer</div><div class="step">Step 2 of 5</div>
+          <div class="q">Who is your reader?</div>
+          <div class="lab">Describe your ideal reader</div>
+          <div class="fld">Busy professionals in their 30s who want to manage their money with confidence, but feel lost in financial jargon.</div>
+          <div class="lab">What is their biggest challenge?</div>
+          <div class="fld">Not knowing where to start</div>
+          <div class="lab">How should they feel after chapter one?</div>
+          <div class="opts"><span class="opt on">Motivated</span><span class="opt">Reassured</span><span class="opt">Curious</span></div>
+          <div class="row"><span class="btn">Back</span><span class="btn p">Continue</span></div>
+          <div class="bub"><b>Opening Chapter Writer</b>Here is a draft opening for your reader: &ldquo;You do not need to be an expert to take control of your money. You only need a clear first step, and by the end of this page you will have yours.&rdquo;</div>
+          <div class="bub" style="margin-top:12px"><b>Book Launch Agent</b>Ready to plan your launch? When would you like to publish?</div>
+          <div class="bub me">In about six weeks.</div>
+          <div class="bub"><b>Book Launch Agent</b>Great. Here is a simple plan to start with: Finalize your cover and listing. Prepare your launch announcement. Invite your first readers.</div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Illustration of the app.</p>
+  </div>
+</section>
+
+<!-- HOW -->
+<section>
+  <div class="wrap">
+    <div class="narrow"><p class="eyebrow">How it works</p><h2>Four steps. One finished book.</h2></div>
+    <div class="steps">
+      <div class="sc"><div class="mini"><div class="f"><b>Your topic</b><br>Personal finance for beginners</div><div class="f"><b>Your goal</b><br>Teach &middot; Build authority &middot; Share my story</div></div><div class="n">Step 1</div><h3>Choose your topic and goal</h3><p>Pick the subject you know well and what you want your book to do for you.</p></div>
+      <div class="sc"><div class="mini"><div class="f"><b>Step 2 of 5</b><br>Who is your reader?</div><div class="f">Busy professionals who feel lost with money</div></div><div class="n">Step 2</div><h3>Answer the guided questions</h3><p>The agents ask, you answer. Your own experience becomes the raw material.</p></div>
+      <div class="sc"><div class="mini"><div class="ok">Chapter generated</div><div class="f">Chapter 1: Your First Step</div></div><div class="n">Step 3</div><h3>Generate chapter by chapter</h3><p>Opening, middle, deepening and closing chapters, each with its own agent.</p></div>
+      <div class="sc"><div class="mini"><div class="ok">Cover ready</div><div class="ok">KDP listing ready</div><div class="ok">Launch plan ready</div><div class="ok">Sales page ready</div></div><div class="n">Step 4</div><h3>Publish and sell</h3><p>Cover, KDP listing, launch plan and a sales page to get your book in front of readers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section style="background:var(--soft)">
+  <div class="wrap">
+    <div class="narrow"><p class="eyebrow">The 18 agents</p><h2>A specialist for every stage of your book.</h2>
+      <p class="lead">Each agent has one job and does it well. Here is what you will be able to do with each of them.</p></div>
+    <div class="tabs" role="tablist" aria-label="Agent stages">
+      <button role="tab" aria-selected="true" data-t="0">Research and Plan</button>
+      <button role="tab" aria-selected="false" data-t="1">Write</button>
+      <button role="tab" aria-selected="false" data-t="2">Polish</button>
+      <button role="tab" aria-selected="false" data-t="3">Publish and Sell</button>
+    </div>
+    <div class="panel on" data-p="0"><p class="pt">Know your market and map your book.</p><div class="grid">
+      <div class="ac"><h3>Book and eBook Market Research</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Validate your topic and understand your audience before you write.</p></div>
+      <div class="ac"><h3>Book Title Generator</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Generate and compare strong title and subtitle options.</p></div>
+      <div class="ac"><h3>Bestseller eBook Generator</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Build a complete ebook structure and content guided by a proven bestseller method.</p></div>
+      <div class="ac"><h3>Fast Production Mode</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Go from idea to a finished draft quickly, with less back and forth.</p></div></div></div>
+    <div class="panel" data-p="1"><p class="pt">Chapter by chapter, in your voice.</p><div class="grid">
+      <div class="ac"><h3>Opening Chapter Writer</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Write a strong opening chapter that hooks readers (5 guided steps).</p></div>
+      <div class="ac"><h3>Middle Chapters Writer</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Write the core chapters with clear structure and flow (5 guided steps).</p></div>
+      <div class="ac"><h3>Deepening Chapters Writer</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Deepen your ideas with examples, stories and practical steps (5 guided steps).</p></div>
+      <div class="ac"><h3>Closing Chapters Writer</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Finish with a powerful conclusion and call to action (7 guided steps).</p></div>
+      <div class="ac"><h3>Storytelling Generator</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Turn your experience into stories that connect with readers.</p></div>
+      <div class="ac"><h3>Complementary Content Generator</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Create bonus content, checklists and extra material around your book.</p></div></div></div>
+    <div class="panel" data-p="2"><p class="pt">Make every page read better.</p><div class="grid">
+      <div class="ac"><h3>Duplicate Content and Writing Flow Reviewer</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Find repetition and smooth the flow before you publish.</p></div>
+      <div class="ac"><h3>Bestselling Author Copywriter</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Sharpen your writing with persuasive, high-converting copy techniques.</p></div></div></div>
+    <div class="panel" data-p="3"><p class="pt">Get your book out and into readers' hands.</p><div class="grid">
+      <div class="ac"><h3>Book Cover and Back Cover Agent</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Get cover and back cover concepts and copy.</p></div>
+      <div class="ac"><h3>Amazon KDP Listing Agent</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Write your title, description, keywords and categories for Amazon KDP.</p></div>
+      <div class="ac"><h3>Book Launch Agent</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Plan your launch step by step.</p></div>
+      <div class="ac"><h3>Book Sales Page Agent</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Create a sales page for your book.</p></div>
+      <div class="ac"><h3>Offer Kit Agent</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Build an offer around your book with bonuses and positioning.</p></div>
+      <div class="ac"><h3>MoneyBook AI chatbot</h3><small>WHAT YOU WILL BE ABLE TO DO</small><p>Ask anything about writing, publishing and selling your book, any time.</p></div></div></div>
+  </div>
+</section>
+
+<!-- NAME ON COVER -->
+<section>
+  <div class="wrap"><div class="show">
+    <p class="eyebrow" style="color:#4db3ff">Your name on the cover</p>
+    <h2>Imagine holding your own book.</h2>
+    <p class="lead">A real cover. Your ideas on every page. Your name on the front.</p>
+    <div class="books">
+      <div class="bk"><div class="book b1"><div class="t">THE MONEY METHOD</div><div class="by">YOUR NAME</div></div></div>
+      <div class="bk"><div class="book b2"><div class="t" style="font-style:italic">Lean<br>Mind</div><div class="by">YOUR NAME</div></div></div>
+      <div class="bk"><div class="book b3"><div class="t">Scale<br>Without<br><span style="color:#ff7a2f">Stress</span></div><div class="by">YOUR NAME</div></div></div>
+      <div class="bk"><div class="book b4"><div class="t" style="font-style:italic">Begin<br>Again</div><div class="by">YOUR NAME</div></div></div>
+      <div class="bk"><div class="book b5"><div class="t">The Calm<br>Couple</div><div class="by">YOUR NAME</div></div></div>
+    </div>
+    <p class="price-line" style="margin-top:50px"><s>$197</s> now $47 for a full year</p>
+    <a class="cta cta-track" href="https://buy.stripe.com/00wfZh0WN7dK3Jqduca3u1V">Get 1 year of access for $47</a>
+    <p class="fine" style="color:#86868b">One payment of $47 per year. Full access to all 18 agents.</p>
+  </div></div>
+</section>
+
+<!-- OFFER -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="narrow"><p class="eyebrow">The offer</p><h2>Everything you need. One simple price.</h2></div>
+    <div class="offer">
+      <span class="save">Save $150</span>
+      <div class="was">$197</div>
+      <div class="now">$47<small> /year</small></div>
+      <ul><li>Full access to all 18 agents for 12 months</li><li>Unlimited guided writing sessions</li><li>Step-by-step guided flows</li><li>Works for any niche</li><li>In American English</li></ul>
+      <a class="cta cta-track" href="https://buy.stripe.com/00wfZh0WN7dK3Jqduca3u1V">Get 1 year of access for $47</a>
+      <p class="fine">After payment you receive your signup link and create your account in under a minute.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="narrow"><p class="eyebrow">FAQ</p><h2>Questions, answered.</h2></div>
+    <div class="faq">
+      <details><summary>Do I need writing experience?</summary><p>No. The agents ask you simple, guided questions and shape your answers into chapters. You bring the knowledge, they bring the structure.</p></details>
+      <details><summary>Which niches does it work in?</summary><p>Any topic you know well. If you can explain it, teach it or share your experience with it, you can write a book about it.</p></details>
+      <details><summary>Is it a subscription?</summary><p>One payment of $47 covers a full year of access.</p></details>
+      <details><summary>How do I get access after paying?</summary><p>You receive the signup link right after payment and create your account.</p></details>
+      <details><summary>Can I publish on Amazon KDP?</summary><p>Yes. The KDP Listing Agent prepares your listing. You remain responsible for your content and for following the platform rules.</p></details>
+    </div>
+    <p class="disc">Results depend on your effort, and AI output should be reviewed by you before publishing.</p>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final" style="padding-top:20px">
+  <div class="wrap"><div class="narrow">
+    <h2>Write your book with AI. <span class="grad">From first idea to published.</span></h2>
+    <p class="price-line"><s>$197</s> &rarr; $47 for a full year</p>
+    <a class="cta cta-track" href="https://buy.stripe.com/00wfZh0WN7dK3Jqduca3u1V">Get 1 year of access for $47</a>
+    <p class="fine">One payment of $47 per year. Full access to all 18 agents.</p>
+  </div></div>
+</section>
+</main>
+
+<footer><div class="wrap">&copy; 2026 MoneyBook AI. All rights reserved.</div></footer>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tabs button'),panels=document.querySelectorAll('.panel');
+  tabs.forEach(function(b){b.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
+    panels.forEach(function(p){p.classList.toggle('on',p.getAttribute('data-p')===b.getAttribute('data-t'))});
+  })});
+  // Checkout intent (not a purchase): fires when someone clicks to buy
+  document.querySelectorAll('.cta-track').forEach(function(a){a.addEventListener('click',function(){
+    try{fbq('track','InitiateCheckout',{content_name:'MoneyBook AI - 1 year access',value:47.00,currency:'USD'});}catch(e){}
+  })});
+})();
+</script>
+</body>
+</html>
